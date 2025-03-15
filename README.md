@@ -1,80 +1,73 @@
-Proyecto de Gestión de Hospitales
+# Proyecto de Gestión de Hospitales en Oracle PL/SQL
 
-Este proyecto consiste en la creación y gestión de un sistema de base de datos para la administración de hospitales, desarrollado en Oracle SQL utilizando paquetes y procedimientos almacenados.
+Este proyecto consiste en la creación y gestión de una base de datos para hospitales, utilizando Oracle PL/SQL. Incluye la creación de tablas, procedimientos almacenados dentro de un paquete y scripts para insertar, actualizar, eliminar y listar datos.
 
-Contenido del Proyecto
+## Estructura del Proyecto
 
-Estructura de la Base de Datos:
+```
+├── scripts/
+│   ├── create_tables.sql            # Script para crear las tablas del sistema
+│   ├── insert_data.sql              # Script para insertar datos de prueba
+│   ├── pkg_hospital_spec.sql        # Especificación del paquete (interfaz pública)
+│   ├── pkg_hospital_body.sql        # Cuerpo del paquete (implementación)
+│   └── test_procedures.sql          # Script para probar los procedimientos
+└── README.md                        # Descripción del proyecto
+```
 
-Tablas principales: Hospital, Distrito, Sede, Gerente, Condicion.
+## Requisitos
+- Oracle SQL Developer
+- Oracle Database 19c o superior
 
-Relaciones entre tablas con claves foráneas.
+## Instrucciones de Uso
 
-Paquete Principal:
+### 1. Crear Tablas
+Ejecuta el siguiente script para crear las tablas necesarias:
 
-pkg_hospital: Contiene procedimientos para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre la tabla Hospital.
+```sql
+@scripts/create_tables.sql
+```
 
-Procedimientos Incluidos:
+### 2. Insertar Datos de Prueba
+Para poblar las tablas con datos aleatorios:
 
-registrar: Inserta un nuevo hospital con validaciones de datos.
+```sql
+@scripts/insert_data.sql
+```
 
-actualizar: Actualiza los datos de un hospital existente.
+### 3. Crear el Paquete PL/SQL
+Primero, crea la especificación del paquete:
 
-eliminar: Elimina un hospital por su ID.
+```sql
+@scripts/pkg_hospital_spec.sql
+```
 
-listar: Lista todos los hospitales junto a sus datos relacionados.
+Luego, implementa el cuerpo del paquete:
 
-buscar: (opcional) Busca hospitales por nombre o ID.
+```sql
+@scripts/pkg_hospital_body.sql
+```
 
-Estructura de Archivos
+### 4. Probar los Procedimientos
+Utiliza el siguiente script para probar los procedimientos (registrar, actualizar, eliminar, listar):
 
-pkg_hospital.sql: Archivo que contiene la especificación y el cuerpo del paquete.
+```sql
+@scripts/test_procedures.sql
+```
 
-insert_data.sql: Archivo con instrucciones INSERT para poblar las tablas con datos de prueba.
+### 5. Exportar la Base de Datos
+Para exportar la base de datos completa en SQL Developer:
+1. Haz clic derecho en la conexión de la base de datos.
+2. Selecciona `Exportar Datos`.
+3. Elige el formato y las tablas que deseas exportar.
+4. Sigue las instrucciones del asistente.
 
-export_db.sql: Script para exportar la base de datos.
+## Nomenclatura de Archivos
+- Los scripts de creación y datos comienzan con `create_` e `insert_`.
+- Los paquetes se separan en `pkg_hospital_spec.sql` para la especificación y `pkg_hospital_body.sql` para la implementación.
+- Los scripts de prueba comienzan con `test_`.
 
-Requisitos
+## Contacto
+Para dudas o sugerencias, puedes abrir un issue o contactarme directamente.
 
-Oracle SQL Developer.
-
-Conexión a una base de datos Oracle.
-
-Instrucciones de Uso
-
-Importar la Base de Datos:
-
-Ejecutar el script insert_data.sql para poblar las tablas.
-
-Crear el Paquete:
-
-Ejecutar el script pkg_hospital.sql para crear los procedimientos.
-
-Probar Procedimientos:
-
-Ejecutar bloques anónimos de ejemplo:
-
-BEGIN
-    pkg_hospital.registrar(1, 1, 'Hospital Central', 20, 1000, 1, 1, 1);
-END;
-/
-
-BEGIN
-    pkg_hospital.listar;
-END;
-/
-
-Exportar la Base de Datos:
-
-Utiliza el script export_db.sql o el asistente de exportación de SQL Developer.
-
-Notas Adicionales
-
-Se recomienda usar DBMS_OUTPUT.PUT_LINE para visualizar resultados en la consola.
-
-Asegúrate de tener habilitada la salida de DBMS_OUTPUT en SQL Developer.
-
-Licencia
-
-Este proyecto es de uso libre para fines académicos y de aprendizaje.
+¡Gracias por utilizar este proyecto! 🚀
 
