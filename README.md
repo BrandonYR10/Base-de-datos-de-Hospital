@@ -42,7 +42,7 @@ Ejecuta el script para crear las tablas de la base de datos del hospital:
 ```sql
 @scripts/create_tables_BD_hospital.sql
 ```
-
+![Diagrama de la Base de Datos](BD_Hospital.png)  
 ### 4. Crear el Paquete PL/SQL  
 
 Define los procedimientos almacenados dentro de un paquete ejecutando el siguiente script:  
