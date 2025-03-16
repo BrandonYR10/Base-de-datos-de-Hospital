@@ -19,51 +19,49 @@ Este proyecto consiste en la creación y gestión de una base de datos para hosp
 
 ## Instrucciones de Uso
 
-### 1. Crear Tablas
-Ejecuta el siguiente script para crear las tablas necesarias:
+### 1. Crear Usuario Administrador  
+
+Ejecuta el siguiente script para crear el usuario `admindoctor`:  
 
 ```sql
-@scripts/create_tables.sql
+@scripts/create_user_adminDoctor.sql
 ```
 
-### 2. Insertar Datos de Prueba
-Para poblar las tablas con datos aleatorios:
+### 2. Asignar Permisos al Usuario  
+
+Otorga los permisos necesarios al usuario `admindoctor`:  
 
 ```sql
-@scripts/insert_data.sql
+@scripts/grant_permissions_adminDoctor.sql
 ```
 
-### 3. Crear el Paquete PL/SQL
-Primero, crea la especificación del paquete:
+### 3. Crear Tablas  
+
+Ejecuta el script para crear las tablas de la base de datos del hospital:  
 
 ```sql
-@scripts/pkg_hospital_spec.sql
+@scripts/create_tables_BD_hospital.sql
 ```
 
-Luego, implementa el cuerpo del paquete:
+### 4. Crear el Paquete PL/SQL  
+
+Define los procedimientos almacenados dentro de un paquete ejecutando el siguiente script:  
 
 ```sql
-@scripts/pkg_hospital_body.sql
+@scripts/pkg_hospital.sql
 ```
 
-### 4. Probar los Procedimientos
-Utiliza el siguiente script para probar los procedimientos (registrar, actualizar, eliminar, listar):
+### 5. Insertar Datos de Prueba  
+
+Pobla las tablas con datos de prueba utilizando los procedimientos creados en el paquete:  
 
 ```sql
-@scripts/test_procedures.sql
+@scripts/insert_datos.sql
 ```
 
-### 5. Exportar la Base de Datos
-Para exportar la base de datos completa en SQL Developer:
-1. Haz clic derecho en la conexión de la base de datos.
-2. Selecciona `Exportar Datos`.
-3. Elige el formato y las tablas que deseas exportar.
-4. Sigue las instrucciones del asistente.
+### 6. Finalización  
 
-## Nomenclatura de Archivos
-- Los scripts de creación y datos comienzan con `create_` e `insert_`.
-- Los paquetes se separan en `pkg_hospital_spec.sql` para la especificación y `pkg_hospital_body.sql` para la implementación.
-- Los scripts de prueba comienzan con `test_`.
+Después de ejecutar todos los scripts, la base de datos estará lista para su uso.  
 
 ## Contacto
 Para dudas o sugerencias, puedes abrir un issue o contactarme directamente.
