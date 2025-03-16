@@ -1,6 +1,6 @@
 # Proyecto de Gestión de Hospitales en Oracle PL/SQL
 
-Este proyecto consiste en la creación y gestión de una base de datos para hospitales, utilizando Oracle PL/SQL. Incluye la creación de tablas, procedimientos almacenados dentro de un paquete y scripts para insertar, actualizar, eliminar y listar datos.
+Este proyecto consiste en la creación y gestión de una base de datos para hospitales, utilizando Oracle PL/SQL. Incluye la creación de tablas, procedimientos almacenados dentro de un paquete y scripts para insertar, actualizar, eliminar, listar datos y buscar hospital.
 
 ## Estructura del Proyecto
 
@@ -16,7 +16,7 @@ Este proyecto consiste en la creación y gestión de una base de datos para hosp
 
 ## Requisitos
 - Oracle SQL Developer
-- Oracle Database 19c o superior
+- Oracle Database 21c o superior
 
 ## Instrucciones de Uso
 
