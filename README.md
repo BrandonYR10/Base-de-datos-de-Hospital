@@ -5,13 +5,12 @@ Este proyecto consiste en la creación y gestión de una base de datos para hosp
 ## Estructura del Proyecto
 
 ```
-├── scripts/
-│   ├── create_tables.sql            # Script para crear las tablas del sistema
-│   ├── insert_data.sql              # Script para insertar datos de prueba
-│   ├── pkg_hospital_spec.sql        # Especificación del paquete (interfaz pública)
-│   ├── pkg_hospital_body.sql        # Cuerpo del paquete (implementación)
-│   └── test_procedures.sql          # Script para probar los procedimientos
-└── README.md                        # Descripción del proyecto
+│── create_user_adminDoctor.sql          # Script para crear usuario admindoctor
+│── grant_permissions_adminDoctor.sql    # Script para dar permisos al usuario
+│── create_tables_BD_hospital.sql        # Script para crear tablas
+│── pkg_hospital.sql                     # Script para crear procemientos en un paquete
+│── insert_datos.sql                     # Script insetar datos en las tablas
+└── README.md                            # Descripción del proyecto
 ```
 
 ## Requisitos
