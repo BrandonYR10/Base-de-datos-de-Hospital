@@ -1,0 +1,47 @@
+<h2>Editar Hospital</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="idDistrito">ID Distrito:</label>
+    <input type="number" id="idDistrito" [(ngModel)]="hospital.idDistrito" name="idDistrito" required>
+  </div>
+
+  <div>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="hospital.nombre" name="nombre" required>
+  </div>
+
+  <div>
+    <label for="antiguedad">Antigüedad (años):</label>
+    <input type="number" id="antiguedad" [(ngModel)]="hospital.antiguedad" name="antiguedad" required>
+  </div>
+
+  <div>
+    <label for="area">Área (m²):</label>
+    <input type="number" id="area" [(ngModel)]="hospital.area" name="area" required>
+  </div>
+
+  <div>
+    <label for="idSede">ID Sede:</label>
+    <input type="number" id="idSede" [(ngModel)]="hospital.idSede" name="idSede" required>
+  </div>
+
+  <div>
+    <label for="idGerente">ID Gerente:</label>
+    <input type="number" id="idGerente" [(ngModel)]="hospital.idGerente" name="idGerente" required>
+  </div>
+
+  <div>
+    <label for="idCondicion">ID Condición:</label>
+    <input type="number" id="idCondicion" [(ngModel)]="hospital.idCondicion" name="idCondicion" required>
+  </div>
+
+  <div class="form-group mt-3">
+    <button type="submit" class="btn btn-primary mr-2">
+      Guardar Cambios
+    </button>
+    <a routerLink="/lista-hospitales" class="btn btn-secondary">
+      Volver a la lista
+    </a>
+  </div>
+</form>
