@@ -1,70 +1,115 @@
-# Proyecto de Gestión de Hospitales en Oracle PL/SQL
+Hospital Management System - Backend & Frontend
+Backend (Spring Boot)
+Requisitos
+Java 17+
 
-Este proyecto consiste en la creación y gestión de una base de datos para hospitales, utilizando Oracle PL/SQL. Incluye la creación de tablas, procedimientos almacenados dentro de un paquete y scripts para insertar, actualizar, eliminar, listar datos y buscar hospital.
+Maven 3.8+
 
-## Estructura del Proyecto
+Oracle Database 19c (o compatible)
 
-```
-│── create_user_adminDoctor.sql          # Script para crear usuario admindoctor
-│── grant_permissions_adminDoctor.sql    # Script para dar permisos al usuario
-│── create_tables_BD_hospital.sql        # Script para crear tablas
-│── pkg_hospital.sql                     # Script para crear procemientos en un paquete
-│── insert_datos.sql                     # Script insetar datos en las tablas
-└── README.md                            # Descripción del proyecto
-```
+Spring Boot 2.7+
 
-## Requisitos
-- Oracle SQL Developer
-- Oracle Database 21c o superior
+Estructura del Proyecto
+Copy
+backend/
+├── src/
+│   ├── main/
+│   │   ├── java/com/devBrandon/hospital/
+│   │   │   ├── controller/        # Controladores REST
+│   │   │   ├── repository/        # Repositorios de datos
+│   │   │   ├── model/             # Entidades JPA
+│   │   │   └── HospitalApplication.java  # Clase principal
+│   │   └── resources/
+│   │       ├── application.properties # Configuración BD
+│   │       └── data.sql           # Datos iniciales
+├── pom.xml                        # Dependencias Maven
+└── README.md
+Configuración
+Configura la conexión a BD en application.properties:
 
-## Instrucciones de Uso
+properties
+Copy
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:XE
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+spring.jpa.hibernate.ddl-auto=update
+Endpoints Disponibles
+GET /api/hospital/listar - Lista todos los hospitales
 
-### 1. Crear Usuario Administrador  
+POST /api/hospital/registrar - Registra nuevo hospital
 
-Ejecuta el siguiente script para crear el usuario `admindoctor`:  
+PUT /api/hospital/actualizar - Actualiza hospital existente
 
-```sql
-@scripts/create_user_adminDoctor.sql
-```
+DELETE /api/hospital/eliminar/{id} - Elimina hospital por ID
 
-### 2. Asignar Permisos al Usuario  
+Ejecución
+bash
+Copy
+mvn spring-boot:run
+Frontend (Angular)
+Requisitos
+Node.js 16+
 
-Otorga los permisos necesarios al usuario `admindoctor`:  
+Angular CLI 14+
 
-```sql
-@scripts/grant_permissions_adminDoctor.sql
-```
+Angular Material (opcional)
 
-### 3. Crear Tablas  
+Estructura del Proyecto
+Copy
+frontend/
+├── src/
+│   ├── app/
+│   │   ├── services/              # Servicios API
+│   │   ├── components/            # Componentes
+│   │   │   ├── lista-hospitales   # Listado principal
+│   │   │   ├── registrar-hospital # Formulario registro
+│   │   │   └── editar-hospital    # Formulario edición
+│   ├── assets/
+│   └── environments/              # Configuración por entorno
+├── angular.json
+└── package.json
+Configuración
+Configura la URL del backend en environment.ts:
 
-Ejecuta el script para crear las tablas de la base de datos del hospital:  
+typescript
+Copy
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080/api'
+};
+Componentes Principales
+ListaHospitalesComponent: Muestra listado con funciones CRUD
 
-```sql
-@scripts/create_tables_BD_hospital.sql
-```
-![Diagrama de la Base de Datos](BD_Hospital.png)  
-### 4. Crear el Paquete PL/SQL  
+RegistrarHospitalComponent: Formulario de registro
 
-Define los procedimientos almacenados dentro de un paquete ejecutando el siguiente script:  
+EditarHospitalComponent: Formulario de edición
 
-```sql
-@scripts/pkg_hospital.sql
-```
+Ejecución
+bash
+Copy
+npm install
+ng serve
+Despliegue Conjunto
+Iniciar backend:
 
-### 5. Insertar Datos de Prueba  
+bash
+Copy
+cd backend && mvn spring-boot:run
+Iniciar frontend:
 
-Pobla las tablas con datos de prueba utilizando los procedimientos creados en el paquete:  
+bash
+Copy
+cd frontend && ng serve
+Acceder en navegador:
 
-```sql
-@scripts/insert_datos.sql
-```
-
-### 6. Finalización  
-
-Después de ejecutar todos los scripts, la base de datos estará lista para su uso.  
-
-## Contacto
-Para dudas o sugerencias, puedes abrir un issue o contactarme directamente.
-
-¡Gracias por utilizar este proyecto! 🚀
+Copy
+http://localhost:4200
+Dependencias Clave
+Backend	Frontend
+Spring Boot Starter	Angular 14+
+Spring Data JPA	RxJS
+Oracle JDBC	Angular Router
+Lombok	Angular Forms
+Licencia
+MIT License - Libre uso y modificación
 
